@@ -67,7 +67,7 @@ app.get('/testdata', cors(corsOptions), (req, res, next) => {
   });
 });
 
-app.options('/customer/create', cors());
+app.options('/customer/create', cors()); // should just be sign up
 app.post(
   '/customer/create',
   cors(createCustomerCorsOptions),
