@@ -5,16 +5,21 @@
   "main": "index.ts",
   "scripts": {
     "create_database": "psql -U postgres < schema.sql",
+    "seed": "yarn create_database && ts-node seed.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node ./index.ts"
+    "start": "nodemon"
   },
   "author": "Joe Jacobi <jospeh.p.jacobi@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
+    "csv-parser": "^3.1.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "graphql": "^16.10.0",
+    "graphql-http": "^1.22.4",
+    "nodemon": "^3.1.9",
     "pg": "^8.13.1",
     "pg-hstore": "^2.3.4"
   },
