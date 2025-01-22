@@ -1,0 +1,24 @@
+type Query {
+  "An array of all marinas"
+  allMarinas: [Marina]!
+}
+
+"Type definition for a marina including its and and full address"
+type Marina {
+  "id for a singular marina"
+  id: ID!
+  "Name of the marina"
+  name String!
+  "Street address for the marina, excludes city, state, and zipcode"
+  address String!
+  "City the marina is located in"
+  city String!
+  "State the marina is located in"
+  state String!
+  "Zip code where the marina is located"
+  zipCode
+  "Timestamp of when this record was last updated"
+  updated_at String!
+  "Timestamp of when this recored was created"
+  created_ at String!
+}

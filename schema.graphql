@@ -1,0 +1,5006 @@
+"""The root query type which gives access points into the data universe."""
+type Query implements Node {
+  """
+  Exposes the root query type nested one level down. This is helpful for Relay 1
+  which can only query top level fields if they are in a particular form.
+  """
+  query: Query!
+
+  """
+  The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.
+  """
+  nodeId: ID!
+
+  """Fetches an object given its globally unique `ID`."""
+  node(
+    """The globally unique `ID`."""
+    nodeId: ID!
+  ): Node
+
+  """Reads and enables pagination through a set of `ContractItemType`."""
+  allContractItemTypes(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ContractItemType`."""
+    orderBy: [ContractItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ContractItemTypeCondition
+  ): ContractItemTypesConnection
+
+  """Reads and enables pagination through a set of `ContractItem`."""
+  allContractItems(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ContractItem`."""
+    orderBy: [ContractItemsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ContractItemCondition
+  ): ContractItemsConnection
+
+  """Reads and enables pagination through a set of `Contract`."""
+  allContracts(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Contract`."""
+    orderBy: [ContractsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ContractCondition
+  ): ContractsConnection
+
+  """Reads and enables pagination through a set of `Invoice`."""
+  allInvoices(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Invoice`."""
+    orderBy: [InvoicesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: InvoiceCondition
+  ): InvoicesConnection
+
+  """Reads and enables pagination through a set of `LineItemType`."""
+  allLineItemTypes(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `LineItemType`."""
+    orderBy: [LineItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: LineItemTypeCondition
+  ): LineItemTypesConnection
+
+  """Reads and enables pagination through a set of `LineItem`."""
+  allLineItems(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `LineItem`."""
+    orderBy: [LineItemsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: LineItemCondition
+  ): LineItemsConnection
+
+  """Reads and enables pagination through a set of `MarinaCustomer`."""
+  allMarinaCustomers(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `MarinaCustomer`."""
+    orderBy: [MarinaCustomersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MarinaCustomerCondition
+  ): MarinaCustomersConnection
+
+  """Reads and enables pagination through a set of `MarinaInventory`."""
+  allMarinaInventories(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `MarinaInventory`."""
+    orderBy: [MarinaInventoriesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MarinaInventoryCondition
+  ): MarinaInventoriesConnection
+
+  """Reads and enables pagination through a set of `Marina`."""
+  allMarinas(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Marina`."""
+    orderBy: [MarinasOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MarinaCondition
+  ): MarinasConnection
+
+  """Reads and enables pagination through a set of `Owner`."""
+  allOwners(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Owner`."""
+    orderBy: [OwnersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: OwnerCondition
+  ): OwnersConnection
+
+  """Reads and enables pagination through a set of `Vessel`."""
+  allVessels(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Vessel`."""
+    orderBy: [VesselsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: VesselCondition
+  ): VesselsConnection
+
+  """Reads and enables pagination through a set of `WorkOrderItemType`."""
+  allWorkOrderItemTypes(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `WorkOrderItemType`."""
+    orderBy: [WorkOrderItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: WorkOrderItemTypeCondition
+  ): WorkOrderItemTypesConnection
+
+  """Reads and enables pagination through a set of `WorkOrderItem`."""
+  allWorkOrderItems(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `WorkOrderItem`."""
+    orderBy: [WorkOrderItemsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: WorkOrderItemCondition
+  ): WorkOrderItemsConnection
+
+  """Reads and enables pagination through a set of `WorkOrder`."""
+  allWorkOrders(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `WorkOrder`."""
+    orderBy: [WorkOrdersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: WorkOrderCondition
+  ): WorkOrdersConnection
+  contractItemTypeById(id: Int!): ContractItemType
+  contractItemById(id: Int!): ContractItem
+  contractById(id: Int!): Contract
+  invoiceById(id: Int!): Invoice
+  lineItemTypeById(id: Int!): LineItemType
+  lineItemById(id: Int!): LineItem
+  marinaCustomerById(id: Int!): MarinaCustomer
+  marinaInventoryById(id: Int!): MarinaInventory
+  marinaById(id: Int!): Marina
+  ownerById(id: Int!): Owner
+  vesselById(id: Int!): Vessel
+  workOrderItemTypeById(id: Int!): WorkOrderItemType
+  workOrderItemById(id: Int!): WorkOrderItem
+  workOrderById(id: Int!): WorkOrder
+
+  """Reads a single `ContractItemType` using its globally unique `ID`."""
+  contractItemType(
+    """
+    The globally unique `ID` to be used in selecting a single `ContractItemType`.
+    """
+    nodeId: ID!
+  ): ContractItemType
+
+  """Reads a single `ContractItem` using its globally unique `ID`."""
+  contractItem(
+    """
+    The globally unique `ID` to be used in selecting a single `ContractItem`.
+    """
+    nodeId: ID!
+  ): ContractItem
+
+  """Reads a single `Contract` using its globally unique `ID`."""
+  contract(
+    """The globally unique `ID` to be used in selecting a single `Contract`."""
+    nodeId: ID!
+  ): Contract
+
+  """Reads a single `Invoice` using its globally unique `ID`."""
+  invoice(
+    """The globally unique `ID` to be used in selecting a single `Invoice`."""
+    nodeId: ID!
+  ): Invoice
+
+  """Reads a single `LineItemType` using its globally unique `ID`."""
+  lineItemType(
+    """
+    The globally unique `ID` to be used in selecting a single `LineItemType`.
+    """
+    nodeId: ID!
+  ): LineItemType
+
+  """Reads a single `LineItem` using its globally unique `ID`."""
+  lineItem(
+    """The globally unique `ID` to be used in selecting a single `LineItem`."""
+    nodeId: ID!
+  ): LineItem
+
+  """Reads a single `MarinaCustomer` using its globally unique `ID`."""
+  marinaCustomer(
+    """
+    The globally unique `ID` to be used in selecting a single `MarinaCustomer`.
+    """
+    nodeId: ID!
+  ): MarinaCustomer
+
+  """Reads a single `MarinaInventory` using its globally unique `ID`."""
+  marinaInventory(
+    """
+    The globally unique `ID` to be used in selecting a single `MarinaInventory`.
+    """
+    nodeId: ID!
+  ): MarinaInventory
+
+  """Reads a single `Marina` using its globally unique `ID`."""
+  marina(
+    """The globally unique `ID` to be used in selecting a single `Marina`."""
+    nodeId: ID!
+  ): Marina
+
+  """Reads a single `Owner` using its globally unique `ID`."""
+  owner(
+    """The globally unique `ID` to be used in selecting a single `Owner`."""
+    nodeId: ID!
+  ): Owner
+
+  """Reads a single `Vessel` using its globally unique `ID`."""
+  vessel(
+    """The globally unique `ID` to be used in selecting a single `Vessel`."""
+    nodeId: ID!
+  ): Vessel
+
+  """Reads a single `WorkOrderItemType` using its globally unique `ID`."""
+  workOrderItemType(
+    """
+    The globally unique `ID` to be used in selecting a single `WorkOrderItemType`.
+    """
+    nodeId: ID!
+  ): WorkOrderItemType
+
+  """Reads a single `WorkOrderItem` using its globally unique `ID`."""
+  workOrderItem(
+    """
+    The globally unique `ID` to be used in selecting a single `WorkOrderItem`.
+    """
+    nodeId: ID!
+  ): WorkOrderItem
+
+  """Reads a single `WorkOrder` using its globally unique `ID`."""
+  workOrder(
+    """The globally unique `ID` to be used in selecting a single `WorkOrder`."""
+    nodeId: ID!
+  ): WorkOrder
+}
+
+"""An object with a globally unique `ID`."""
+interface Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+}
+
+"""A connection to a list of `ContractItemType` values."""
+type ContractItemTypesConnection {
+  """A list of `ContractItemType` objects."""
+  nodes: [ContractItemType!]!
+
+  """
+  A list of edges which contains the `ContractItemType` and cursor to aid in pagination.
+  """
+  edges: [ContractItemTypesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `ContractItemType` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type ContractItemType implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  title: String!
+  marinaId: Int!
+  description: String!
+  updatedAt: Datetime!
+  createdAt: Datetime!
+
+  """Reads a single `Marina` that is related to this `ContractItemType`."""
+  marinaByMarinaId: Marina
+}
+
+"""
+A point in time as described by the [ISO
+8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
+"""
+scalar Datetime
+
+type Marina implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  name: String!
+  address: String!
+  city: String!
+  state: String!
+  zipCode: String!
+  updatedAt: Datetime!
+  createdAt: Datetime!
+
+  """Reads and enables pagination through a set of `MarinaCustomer`."""
+  marinaCustomersByMarinaId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `MarinaCustomer`."""
+    orderBy: [MarinaCustomersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MarinaCustomerCondition
+  ): MarinaCustomersConnection!
+
+  """Reads and enables pagination through a set of `MarinaInventory`."""
+  marinaInventoriesByMarinaId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `MarinaInventory`."""
+    orderBy: [MarinaInventoriesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MarinaInventoryCondition
+  ): MarinaInventoriesConnection!
+
+  """Reads and enables pagination through a set of `Contract`."""
+  contractsByMarinaId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Contract`."""
+    orderBy: [ContractsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ContractCondition
+  ): ContractsConnection!
+
+  """Reads and enables pagination through a set of `ContractItemType`."""
+  contractItemTypesByMarinaId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ContractItemType`."""
+    orderBy: [ContractItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ContractItemTypeCondition
+  ): ContractItemTypesConnection!
+
+  """Reads and enables pagination through a set of `WorkOrder`."""
+  workOrdersByMarinaId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `WorkOrder`."""
+    orderBy: [WorkOrdersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: WorkOrderCondition
+  ): WorkOrdersConnection!
+
+  """Reads and enables pagination through a set of `WorkOrderItemType`."""
+  workOrderItemTypesByMarinaId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `WorkOrderItemType`."""
+    orderBy: [WorkOrderItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: WorkOrderItemTypeCondition
+  ): WorkOrderItemTypesConnection!
+
+  """Reads and enables pagination through a set of `Invoice`."""
+  invoicesByMarinaId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Invoice`."""
+    orderBy: [InvoicesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: InvoiceCondition
+  ): InvoicesConnection!
+
+  """Reads and enables pagination through a set of `LineItemType`."""
+  lineItemTypesByMarinaId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `LineItemType`."""
+    orderBy: [LineItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: LineItemTypeCondition
+  ): LineItemTypesConnection!
+}
+
+"""A connection to a list of `MarinaCustomer` values."""
+type MarinaCustomersConnection {
+  """A list of `MarinaCustomer` objects."""
+  nodes: [MarinaCustomer!]!
+
+  """
+  A list of edges which contains the `MarinaCustomer` and cursor to aid in pagination.
+  """
+  edges: [MarinaCustomersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `MarinaCustomer` you could get from the connection."""
+  totalCount: Int!
+}
+
+type MarinaCustomer implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  marinaId: Int!
+  ownerId: Int!
+  inventoryId: Int!
+  updatedAt: Datetime!
+  createdAt: Datetime!
+
+  """Reads a single `Marina` that is related to this `MarinaCustomer`."""
+  marinaByMarinaId: Marina
+}
+
+"""A `MarinaCustomer` edge in the connection."""
+type MarinaCustomersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `MarinaCustomer` at the end of the edge."""
+  node: MarinaCustomer!
+}
+
+"""A location in a connection that can be used for resuming pagination."""
+scalar Cursor
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: Cursor
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: Cursor
+}
+
+"""Methods to use when ordering `MarinaCustomer`."""
+enum MarinaCustomersOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  MARINA_ID_ASC
+  MARINA_ID_DESC
+  OWNER_ID_ASC
+  OWNER_ID_DESC
+  INVENTORY_ID_ASC
+  INVENTORY_ID_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `MarinaCustomer` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input MarinaCustomerCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `marinaId` field."""
+  marinaId: Int
+
+  """Checks for equality with the object’s `ownerId` field."""
+  ownerId: Int
+
+  """Checks for equality with the object’s `inventoryId` field."""
+  inventoryId: Int
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""A connection to a list of `MarinaInventory` values."""
+type MarinaInventoriesConnection {
+  """A list of `MarinaInventory` objects."""
+  nodes: [MarinaInventory!]!
+
+  """
+  A list of edges which contains the `MarinaInventory` and cursor to aid in pagination.
+  """
+  edges: [MarinaInventoriesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `MarinaInventory` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type MarinaInventory implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  marinaId: Int!
+  inventoryId: Int!
+  updatedAt: Datetime!
+  createdAt: Datetime!
+
+  """Reads a single `Marina` that is related to this `MarinaInventory`."""
+  marinaByMarinaId: Marina
+}
+
+"""A `MarinaInventory` edge in the connection."""
+type MarinaInventoriesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `MarinaInventory` at the end of the edge."""
+  node: MarinaInventory!
+}
+
+"""Methods to use when ordering `MarinaInventory`."""
+enum MarinaInventoriesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  MARINA_ID_ASC
+  MARINA_ID_DESC
+  INVENTORY_ID_ASC
+  INVENTORY_ID_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `MarinaInventory` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input MarinaInventoryCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `marinaId` field."""
+  marinaId: Int
+
+  """Checks for equality with the object’s `inventoryId` field."""
+  inventoryId: Int
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""A connection to a list of `Contract` values."""
+type ContractsConnection {
+  """A list of `Contract` objects."""
+  nodes: [Contract!]!
+
+  """
+  A list of edges which contains the `Contract` and cursor to aid in pagination.
+  """
+  edges: [ContractsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Contract` you could get from the connection."""
+  totalCount: Int!
+}
+
+type Contract implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  status: String!
+  vesselId: Int!
+  marinaId: Int!
+  deliveryMethod: String!
+  completedAt: Datetime
+  updatedAt: Datetime!
+  createdAt: Datetime!
+
+  """Reads a single `Marina` that is related to this `Contract`."""
+  marinaByMarinaId: Marina
+}
+
+"""A `Contract` edge in the connection."""
+type ContractsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Contract` at the end of the edge."""
+  node: Contract!
+}
+
+"""Methods to use when ordering `Contract`."""
+enum ContractsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  STATUS_ASC
+  STATUS_DESC
+  VESSEL_ID_ASC
+  VESSEL_ID_DESC
+  MARINA_ID_ASC
+  MARINA_ID_DESC
+  DELIVERY_METHOD_ASC
+  DELIVERY_METHOD_DESC
+  COMPLETED_AT_ASC
+  COMPLETED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Contract` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input ContractCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `status` field."""
+  status: String
+
+  """Checks for equality with the object’s `vesselId` field."""
+  vesselId: Int
+
+  """Checks for equality with the object’s `marinaId` field."""
+  marinaId: Int
+
+  """Checks for equality with the object’s `deliveryMethod` field."""
+  deliveryMethod: String
+
+  """Checks for equality with the object’s `completedAt` field."""
+  completedAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""Methods to use when ordering `ContractItemType`."""
+enum ContractItemTypesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  MARINA_ID_ASC
+  MARINA_ID_DESC
+  DESCRIPTION_ASC
+  DESCRIPTION_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ContractItemType` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input ContractItemTypeCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `title` field."""
+  title: String
+
+  """Checks for equality with the object’s `marinaId` field."""
+  marinaId: Int
+
+  """Checks for equality with the object’s `description` field."""
+  description: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""A connection to a list of `WorkOrder` values."""
+type WorkOrdersConnection {
+  """A list of `WorkOrder` objects."""
+  nodes: [WorkOrder!]!
+
+  """
+  A list of edges which contains the `WorkOrder` and cursor to aid in pagination.
+  """
+  edges: [WorkOrdersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `WorkOrder` you could get from the connection."""
+  totalCount: Int!
+}
+
+type WorkOrder implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  status: String!
+  marinaId: Int!
+  vesselId: Int!
+  contractId: Int
+  completedAt: Datetime
+  updatedAt: Datetime!
+  createdAt: Datetime!
+
+  """Reads a single `Marina` that is related to this `WorkOrder`."""
+  marinaByMarinaId: Marina
+}
+
+"""A `WorkOrder` edge in the connection."""
+type WorkOrdersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `WorkOrder` at the end of the edge."""
+  node: WorkOrder!
+}
+
+"""Methods to use when ordering `WorkOrder`."""
+enum WorkOrdersOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  STATUS_ASC
+  STATUS_DESC
+  MARINA_ID_ASC
+  MARINA_ID_DESC
+  VESSEL_ID_ASC
+  VESSEL_ID_DESC
+  CONTRACT_ID_ASC
+  CONTRACT_ID_DESC
+  COMPLETED_AT_ASC
+  COMPLETED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `WorkOrder` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input WorkOrderCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `status` field."""
+  status: String
+
+  """Checks for equality with the object’s `marinaId` field."""
+  marinaId: Int
+
+  """Checks for equality with the object’s `vesselId` field."""
+  vesselId: Int
+
+  """Checks for equality with the object’s `contractId` field."""
+  contractId: Int
+
+  """Checks for equality with the object’s `completedAt` field."""
+  completedAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""A connection to a list of `WorkOrderItemType` values."""
+type WorkOrderItemTypesConnection {
+  """A list of `WorkOrderItemType` objects."""
+  nodes: [WorkOrderItemType!]!
+
+  """
+  A list of edges which contains the `WorkOrderItemType` and cursor to aid in pagination.
+  """
+  edges: [WorkOrderItemTypesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `WorkOrderItemType` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type WorkOrderItemType implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  title: String!
+  marinaId: Int!
+  description: String!
+  updatedAt: Datetime!
+  createdAt: Datetime!
+
+  """Reads a single `Marina` that is related to this `WorkOrderItemType`."""
+  marinaByMarinaId: Marina
+}
+
+"""A `WorkOrderItemType` edge in the connection."""
+type WorkOrderItemTypesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `WorkOrderItemType` at the end of the edge."""
+  node: WorkOrderItemType!
+}
+
+"""Methods to use when ordering `WorkOrderItemType`."""
+enum WorkOrderItemTypesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  MARINA_ID_ASC
+  MARINA_ID_DESC
+  DESCRIPTION_ASC
+  DESCRIPTION_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `WorkOrderItemType` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input WorkOrderItemTypeCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `title` field."""
+  title: String
+
+  """Checks for equality with the object’s `marinaId` field."""
+  marinaId: Int
+
+  """Checks for equality with the object’s `description` field."""
+  description: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""A connection to a list of `Invoice` values."""
+type InvoicesConnection {
+  """A list of `Invoice` objects."""
+  nodes: [Invoice!]!
+
+  """
+  A list of edges which contains the `Invoice` and cursor to aid in pagination.
+  """
+  edges: [InvoicesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Invoice` you could get from the connection."""
+  totalCount: Int!
+}
+
+type Invoice implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  status: String!
+  marinaId: Int!
+  workOrderId: Int
+  vesselId: Int
+  ownerId: Int
+  dateSent: Datetime
+  dateDue: Datetime
+  completedAt: Datetime
+  updatedAt: Datetime!
+  createdAt: Datetime!
+
+  """Reads a single `Marina` that is related to this `Invoice`."""
+  marinaByMarinaId: Marina
+}
+
+"""A `Invoice` edge in the connection."""
+type InvoicesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Invoice` at the end of the edge."""
+  node: Invoice!
+}
+
+"""Methods to use when ordering `Invoice`."""
+enum InvoicesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  STATUS_ASC
+  STATUS_DESC
+  MARINA_ID_ASC
+  MARINA_ID_DESC
+  WORK_ORDER_ID_ASC
+  WORK_ORDER_ID_DESC
+  VESSEL_ID_ASC
+  VESSEL_ID_DESC
+  OWNER_ID_ASC
+  OWNER_ID_DESC
+  DATE_SENT_ASC
+  DATE_SENT_DESC
+  DATE_DUE_ASC
+  DATE_DUE_DESC
+  COMPLETED_AT_ASC
+  COMPLETED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Invoice` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input InvoiceCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `status` field."""
+  status: String
+
+  """Checks for equality with the object’s `marinaId` field."""
+  marinaId: Int
+
+  """Checks for equality with the object’s `workOrderId` field."""
+  workOrderId: Int
+
+  """Checks for equality with the object’s `vesselId` field."""
+  vesselId: Int
+
+  """Checks for equality with the object’s `ownerId` field."""
+  ownerId: Int
+
+  """Checks for equality with the object’s `dateSent` field."""
+  dateSent: Datetime
+
+  """Checks for equality with the object’s `dateDue` field."""
+  dateDue: Datetime
+
+  """Checks for equality with the object’s `completedAt` field."""
+  completedAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""A connection to a list of `LineItemType` values."""
+type LineItemTypesConnection {
+  """A list of `LineItemType` objects."""
+  nodes: [LineItemType!]!
+
+  """
+  A list of edges which contains the `LineItemType` and cursor to aid in pagination.
+  """
+  edges: [LineItemTypesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `LineItemType` you could get from the connection."""
+  totalCount: Int!
+}
+
+type LineItemType implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  title: String!
+  marinaId: Int!
+  description: String!
+  updatedAt: Datetime!
+  createdAt: Datetime!
+
+  """Reads a single `Marina` that is related to this `LineItemType`."""
+  marinaByMarinaId: Marina
+}
+
+"""A `LineItemType` edge in the connection."""
+type LineItemTypesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `LineItemType` at the end of the edge."""
+  node: LineItemType!
+}
+
+"""Methods to use when ordering `LineItemType`."""
+enum LineItemTypesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  MARINA_ID_ASC
+  MARINA_ID_DESC
+  DESCRIPTION_ASC
+  DESCRIPTION_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `LineItemType` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input LineItemTypeCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `title` field."""
+  title: String
+
+  """Checks for equality with the object’s `marinaId` field."""
+  marinaId: Int
+
+  """Checks for equality with the object’s `description` field."""
+  description: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""A `ContractItemType` edge in the connection."""
+type ContractItemTypesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ContractItemType` at the end of the edge."""
+  node: ContractItemType!
+}
+
+"""A connection to a list of `ContractItem` values."""
+type ContractItemsConnection {
+  """A list of `ContractItem` objects."""
+  nodes: [ContractItem!]!
+
+  """
+  A list of edges which contains the `ContractItem` and cursor to aid in pagination.
+  """
+  edges: [ContractItemsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `ContractItem` you could get from the connection."""
+  totalCount: Int!
+}
+
+type ContractItem implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  contractId: Int!
+  typeId: Int!
+  updatedAt: Datetime!
+  createdAt: Datetime!
+}
+
+"""A `ContractItem` edge in the connection."""
+type ContractItemsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ContractItem` at the end of the edge."""
+  node: ContractItem!
+}
+
+"""Methods to use when ordering `ContractItem`."""
+enum ContractItemsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  CONTRACT_ID_ASC
+  CONTRACT_ID_DESC
+  TYPE_ID_ASC
+  TYPE_ID_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ContractItem` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input ContractItemCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `contractId` field."""
+  contractId: Int
+
+  """Checks for equality with the object’s `typeId` field."""
+  typeId: Int
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""A connection to a list of `LineItem` values."""
+type LineItemsConnection {
+  """A list of `LineItem` objects."""
+  nodes: [LineItem!]!
+
+  """
+  A list of edges which contains the `LineItem` and cursor to aid in pagination.
+  """
+  edges: [LineItemsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `LineItem` you could get from the connection."""
+  totalCount: Int!
+}
+
+type LineItem implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  invoiceId: Int!
+  typeId: Int!
+  price: Int!
+  laborInHours: Int
+  updatedAt: Datetime!
+  createdAt: Datetime!
+}
+
+"""A `LineItem` edge in the connection."""
+type LineItemsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `LineItem` at the end of the edge."""
+  node: LineItem!
+}
+
+"""Methods to use when ordering `LineItem`."""
+enum LineItemsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  INVOICE_ID_ASC
+  INVOICE_ID_DESC
+  TYPE_ID_ASC
+  TYPE_ID_DESC
+  PRICE_ASC
+  PRICE_DESC
+  LABOR_IN_HOURS_ASC
+  LABOR_IN_HOURS_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `LineItem` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input LineItemCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `invoiceId` field."""
+  invoiceId: Int
+
+  """Checks for equality with the object’s `typeId` field."""
+  typeId: Int
+
+  """Checks for equality with the object’s `price` field."""
+  price: Int
+
+  """Checks for equality with the object’s `laborInHours` field."""
+  laborInHours: Int
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""A connection to a list of `Marina` values."""
+type MarinasConnection {
+  """A list of `Marina` objects."""
+  nodes: [Marina!]!
+
+  """
+  A list of edges which contains the `Marina` and cursor to aid in pagination.
+  """
+  edges: [MarinasEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Marina` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Marina` edge in the connection."""
+type MarinasEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Marina` at the end of the edge."""
+  node: Marina!
+}
+
+"""Methods to use when ordering `Marina`."""
+enum MarinasOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  ADDRESS_ASC
+  ADDRESS_DESC
+  CITY_ASC
+  CITY_DESC
+  STATE_ASC
+  STATE_DESC
+  ZIP_CODE_ASC
+  ZIP_CODE_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Marina` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input MarinaCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `address` field."""
+  address: String
+
+  """Checks for equality with the object’s `city` field."""
+  city: String
+
+  """Checks for equality with the object’s `state` field."""
+  state: String
+
+  """Checks for equality with the object’s `zipCode` field."""
+  zipCode: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""A connection to a list of `Owner` values."""
+type OwnersConnection {
+  """A list of `Owner` objects."""
+  nodes: [Owner!]!
+
+  """
+  A list of edges which contains the `Owner` and cursor to aid in pagination.
+  """
+  edges: [OwnersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Owner` you could get from the connection."""
+  totalCount: Int!
+}
+
+type Owner implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  firstName: String!
+  lastName: String!
+  address: String!
+  city: String!
+  state: String!
+  zipCode: String!
+  updatedAt: Datetime!
+  createdAt: Datetime!
+}
+
+"""A `Owner` edge in the connection."""
+type OwnersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Owner` at the end of the edge."""
+  node: Owner!
+}
+
+"""Methods to use when ordering `Owner`."""
+enum OwnersOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  FIRST_NAME_ASC
+  FIRST_NAME_DESC
+  LAST_NAME_ASC
+  LAST_NAME_DESC
+  ADDRESS_ASC
+  ADDRESS_DESC
+  CITY_ASC
+  CITY_DESC
+  STATE_ASC
+  STATE_DESC
+  ZIP_CODE_ASC
+  ZIP_CODE_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Owner` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input OwnerCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `firstName` field."""
+  firstName: String
+
+  """Checks for equality with the object’s `lastName` field."""
+  lastName: String
+
+  """Checks for equality with the object’s `address` field."""
+  address: String
+
+  """Checks for equality with the object’s `city` field."""
+  city: String
+
+  """Checks for equality with the object’s `state` field."""
+  state: String
+
+  """Checks for equality with the object’s `zipCode` field."""
+  zipCode: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""A connection to a list of `Vessel` values."""
+type VesselsConnection {
+  """A list of `Vessel` objects."""
+  nodes: [Vessel!]!
+
+  """
+  A list of edges which contains the `Vessel` and cursor to aid in pagination.
+  """
+  edges: [VesselsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Vessel` you could get from the connection."""
+  totalCount: Int!
+}
+
+type Vessel implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  year: Int!
+  boatName: String
+  length: Int!
+  make: String!
+  model: String
+  updatedAt: Datetime!
+  createdAt: Datetime!
+}
+
+"""A `Vessel` edge in the connection."""
+type VesselsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Vessel` at the end of the edge."""
+  node: Vessel!
+}
+
+"""Methods to use when ordering `Vessel`."""
+enum VesselsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  YEAR_ASC
+  YEAR_DESC
+  BOAT_NAME_ASC
+  BOAT_NAME_DESC
+  LENGTH_ASC
+  LENGTH_DESC
+  MAKE_ASC
+  MAKE_DESC
+  MODEL_ASC
+  MODEL_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Vessel` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input VesselCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `boatName` field."""
+  boatName: String
+
+  """Checks for equality with the object’s `length` field."""
+  length: Int
+
+  """Checks for equality with the object’s `make` field."""
+  make: String
+
+  """Checks for equality with the object’s `model` field."""
+  model: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""A connection to a list of `WorkOrderItem` values."""
+type WorkOrderItemsConnection {
+  """A list of `WorkOrderItem` objects."""
+  nodes: [WorkOrderItem!]!
+
+  """
+  A list of edges which contains the `WorkOrderItem` and cursor to aid in pagination.
+  """
+  edges: [WorkOrderItemsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `WorkOrderItem` you could get from the connection."""
+  totalCount: Int!
+}
+
+type WorkOrderItem implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  workOrderId: Int!
+  typeId: Int!
+  updatedAt: Datetime!
+  createdAt: Datetime!
+}
+
+"""A `WorkOrderItem` edge in the connection."""
+type WorkOrderItemsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `WorkOrderItem` at the end of the edge."""
+  node: WorkOrderItem!
+}
+
+"""Methods to use when ordering `WorkOrderItem`."""
+enum WorkOrderItemsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  WORK_ORDER_ID_ASC
+  WORK_ORDER_ID_DESC
+  TYPE_ID_ASC
+  TYPE_ID_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `WorkOrderItem` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input WorkOrderItemCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `workOrderId` field."""
+  workOrderId: Int
+
+  """Checks for equality with the object’s `typeId` field."""
+  typeId: Int
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+}
+
+"""
+The root mutation type which contains root level fields which mutate data.
+"""
+type Mutation {
+  """Creates a single `ContractItemType`."""
+  createContractItemType(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateContractItemTypeInput!
+  ): CreateContractItemTypePayload
+
+  """Creates a single `ContractItem`."""
+  createContractItem(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateContractItemInput!
+  ): CreateContractItemPayload
+
+  """Creates a single `Contract`."""
+  createContract(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateContractInput!
+  ): CreateContractPayload
+
+  """Creates a single `Invoice`."""
+  createInvoice(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateInvoiceInput!
+  ): CreateInvoicePayload
+
+  """Creates a single `LineItemType`."""
+  createLineItemType(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateLineItemTypeInput!
+  ): CreateLineItemTypePayload
+
+  """Creates a single `LineItem`."""
+  createLineItem(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateLineItemInput!
+  ): CreateLineItemPayload
+
+  """Creates a single `MarinaCustomer`."""
+  createMarinaCustomer(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMarinaCustomerInput!
+  ): CreateMarinaCustomerPayload
+
+  """Creates a single `MarinaInventory`."""
+  createMarinaInventory(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMarinaInventoryInput!
+  ): CreateMarinaInventoryPayload
+
+  """Creates a single `Marina`."""
+  createMarina(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMarinaInput!
+  ): CreateMarinaPayload
+
+  """Creates a single `Owner`."""
+  createOwner(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateOwnerInput!
+  ): CreateOwnerPayload
+
+  """Creates a single `Vessel`."""
+  createVessel(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateVesselInput!
+  ): CreateVesselPayload
+
+  """Creates a single `WorkOrderItemType`."""
+  createWorkOrderItemType(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateWorkOrderItemTypeInput!
+  ): CreateWorkOrderItemTypePayload
+
+  """Creates a single `WorkOrderItem`."""
+  createWorkOrderItem(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateWorkOrderItemInput!
+  ): CreateWorkOrderItemPayload
+
+  """Creates a single `WorkOrder`."""
+  createWorkOrder(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateWorkOrderInput!
+  ): CreateWorkOrderPayload
+
+  """
+  Updates a single `ContractItemType` using its globally unique id and a patch.
+  """
+  updateContractItemType(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateContractItemTypeInput!
+  ): UpdateContractItemTypePayload
+
+  """Updates a single `ContractItemType` using a unique key and a patch."""
+  updateContractItemTypeById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateContractItemTypeByIdInput!
+  ): UpdateContractItemTypePayload
+
+  """
+  Updates a single `ContractItem` using its globally unique id and a patch.
+  """
+  updateContractItem(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateContractItemInput!
+  ): UpdateContractItemPayload
+
+  """Updates a single `ContractItem` using a unique key and a patch."""
+  updateContractItemById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateContractItemByIdInput!
+  ): UpdateContractItemPayload
+
+  """Updates a single `Contract` using its globally unique id and a patch."""
+  updateContract(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateContractInput!
+  ): UpdateContractPayload
+
+  """Updates a single `Contract` using a unique key and a patch."""
+  updateContractById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateContractByIdInput!
+  ): UpdateContractPayload
+
+  """Updates a single `Invoice` using its globally unique id and a patch."""
+  updateInvoice(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateInvoiceInput!
+  ): UpdateInvoicePayload
+
+  """Updates a single `Invoice` using a unique key and a patch."""
+  updateInvoiceById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateInvoiceByIdInput!
+  ): UpdateInvoicePayload
+
+  """
+  Updates a single `LineItemType` using its globally unique id and a patch.
+  """
+  updateLineItemType(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateLineItemTypeInput!
+  ): UpdateLineItemTypePayload
+
+  """Updates a single `LineItemType` using a unique key and a patch."""
+  updateLineItemTypeById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateLineItemTypeByIdInput!
+  ): UpdateLineItemTypePayload
+
+  """Updates a single `LineItem` using its globally unique id and a patch."""
+  updateLineItem(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateLineItemInput!
+  ): UpdateLineItemPayload
+
+  """Updates a single `LineItem` using a unique key and a patch."""
+  updateLineItemById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateLineItemByIdInput!
+  ): UpdateLineItemPayload
+
+  """
+  Updates a single `MarinaCustomer` using its globally unique id and a patch.
+  """
+  updateMarinaCustomer(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarinaCustomerInput!
+  ): UpdateMarinaCustomerPayload
+
+  """Updates a single `MarinaCustomer` using a unique key and a patch."""
+  updateMarinaCustomerById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarinaCustomerByIdInput!
+  ): UpdateMarinaCustomerPayload
+
+  """
+  Updates a single `MarinaInventory` using its globally unique id and a patch.
+  """
+  updateMarinaInventory(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarinaInventoryInput!
+  ): UpdateMarinaInventoryPayload
+
+  """Updates a single `MarinaInventory` using a unique key and a patch."""
+  updateMarinaInventoryById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarinaInventoryByIdInput!
+  ): UpdateMarinaInventoryPayload
+
+  """Updates a single `Marina` using its globally unique id and a patch."""
+  updateMarina(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarinaInput!
+  ): UpdateMarinaPayload
+
+  """Updates a single `Marina` using a unique key and a patch."""
+  updateMarinaById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarinaByIdInput!
+  ): UpdateMarinaPayload
+
+  """Updates a single `Owner` using its globally unique id and a patch."""
+  updateOwner(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateOwnerInput!
+  ): UpdateOwnerPayload
+
+  """Updates a single `Owner` using a unique key and a patch."""
+  updateOwnerById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateOwnerByIdInput!
+  ): UpdateOwnerPayload
+
+  """Updates a single `Vessel` using its globally unique id and a patch."""
+  updateVessel(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateVesselInput!
+  ): UpdateVesselPayload
+
+  """Updates a single `Vessel` using a unique key and a patch."""
+  updateVesselById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateVesselByIdInput!
+  ): UpdateVesselPayload
+
+  """
+  Updates a single `WorkOrderItemType` using its globally unique id and a patch.
+  """
+  updateWorkOrderItemType(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateWorkOrderItemTypeInput!
+  ): UpdateWorkOrderItemTypePayload
+
+  """Updates a single `WorkOrderItemType` using a unique key and a patch."""
+  updateWorkOrderItemTypeById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateWorkOrderItemTypeByIdInput!
+  ): UpdateWorkOrderItemTypePayload
+
+  """
+  Updates a single `WorkOrderItem` using its globally unique id and a patch.
+  """
+  updateWorkOrderItem(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateWorkOrderItemInput!
+  ): UpdateWorkOrderItemPayload
+
+  """Updates a single `WorkOrderItem` using a unique key and a patch."""
+  updateWorkOrderItemById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateWorkOrderItemByIdInput!
+  ): UpdateWorkOrderItemPayload
+
+  """Updates a single `WorkOrder` using its globally unique id and a patch."""
+  updateWorkOrder(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateWorkOrderInput!
+  ): UpdateWorkOrderPayload
+
+  """Updates a single `WorkOrder` using a unique key and a patch."""
+  updateWorkOrderById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateWorkOrderByIdInput!
+  ): UpdateWorkOrderPayload
+
+  """Deletes a single `ContractItemType` using its globally unique id."""
+  deleteContractItemType(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteContractItemTypeInput!
+  ): DeleteContractItemTypePayload
+
+  """Deletes a single `ContractItemType` using a unique key."""
+  deleteContractItemTypeById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteContractItemTypeByIdInput!
+  ): DeleteContractItemTypePayload
+
+  """Deletes a single `ContractItem` using its globally unique id."""
+  deleteContractItem(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteContractItemInput!
+  ): DeleteContractItemPayload
+
+  """Deletes a single `ContractItem` using a unique key."""
+  deleteContractItemById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteContractItemByIdInput!
+  ): DeleteContractItemPayload
+
+  """Deletes a single `Contract` using its globally unique id."""
+  deleteContract(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteContractInput!
+  ): DeleteContractPayload
+
+  """Deletes a single `Contract` using a unique key."""
+  deleteContractById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteContractByIdInput!
+  ): DeleteContractPayload
+
+  """Deletes a single `Invoice` using its globally unique id."""
+  deleteInvoice(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteInvoiceInput!
+  ): DeleteInvoicePayload
+
+  """Deletes a single `Invoice` using a unique key."""
+  deleteInvoiceById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteInvoiceByIdInput!
+  ): DeleteInvoicePayload
+
+  """Deletes a single `LineItemType` using its globally unique id."""
+  deleteLineItemType(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteLineItemTypeInput!
+  ): DeleteLineItemTypePayload
+
+  """Deletes a single `LineItemType` using a unique key."""
+  deleteLineItemTypeById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteLineItemTypeByIdInput!
+  ): DeleteLineItemTypePayload
+
+  """Deletes a single `LineItem` using its globally unique id."""
+  deleteLineItem(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteLineItemInput!
+  ): DeleteLineItemPayload
+
+  """Deletes a single `LineItem` using a unique key."""
+  deleteLineItemById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteLineItemByIdInput!
+  ): DeleteLineItemPayload
+
+  """Deletes a single `MarinaCustomer` using its globally unique id."""
+  deleteMarinaCustomer(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarinaCustomerInput!
+  ): DeleteMarinaCustomerPayload
+
+  """Deletes a single `MarinaCustomer` using a unique key."""
+  deleteMarinaCustomerById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarinaCustomerByIdInput!
+  ): DeleteMarinaCustomerPayload
+
+  """Deletes a single `MarinaInventory` using its globally unique id."""
+  deleteMarinaInventory(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarinaInventoryInput!
+  ): DeleteMarinaInventoryPayload
+
+  """Deletes a single `MarinaInventory` using a unique key."""
+  deleteMarinaInventoryById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarinaInventoryByIdInput!
+  ): DeleteMarinaInventoryPayload
+
+  """Deletes a single `Marina` using its globally unique id."""
+  deleteMarina(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarinaInput!
+  ): DeleteMarinaPayload
+
+  """Deletes a single `Marina` using a unique key."""
+  deleteMarinaById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarinaByIdInput!
+  ): DeleteMarinaPayload
+
+  """Deletes a single `Owner` using its globally unique id."""
+  deleteOwner(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteOwnerInput!
+  ): DeleteOwnerPayload
+
+  """Deletes a single `Owner` using a unique key."""
+  deleteOwnerById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteOwnerByIdInput!
+  ): DeleteOwnerPayload
+
+  """Deletes a single `Vessel` using its globally unique id."""
+  deleteVessel(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteVesselInput!
+  ): DeleteVesselPayload
+
+  """Deletes a single `Vessel` using a unique key."""
+  deleteVesselById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteVesselByIdInput!
+  ): DeleteVesselPayload
+
+  """Deletes a single `WorkOrderItemType` using its globally unique id."""
+  deleteWorkOrderItemType(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteWorkOrderItemTypeInput!
+  ): DeleteWorkOrderItemTypePayload
+
+  """Deletes a single `WorkOrderItemType` using a unique key."""
+  deleteWorkOrderItemTypeById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteWorkOrderItemTypeByIdInput!
+  ): DeleteWorkOrderItemTypePayload
+
+  """Deletes a single `WorkOrderItem` using its globally unique id."""
+  deleteWorkOrderItem(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteWorkOrderItemInput!
+  ): DeleteWorkOrderItemPayload
+
+  """Deletes a single `WorkOrderItem` using a unique key."""
+  deleteWorkOrderItemById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteWorkOrderItemByIdInput!
+  ): DeleteWorkOrderItemPayload
+
+  """Deletes a single `WorkOrder` using its globally unique id."""
+  deleteWorkOrder(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteWorkOrderInput!
+  ): DeleteWorkOrderPayload
+
+  """Deletes a single `WorkOrder` using a unique key."""
+  deleteWorkOrderById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteWorkOrderByIdInput!
+  ): DeleteWorkOrderPayload
+}
+
+"""The output of our create `ContractItemType` mutation."""
+type CreateContractItemTypePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `ContractItemType` that was created by this mutation."""
+  contractItemType: ContractItemType
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `ContractItemType`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `ContractItemType`. May be used by Relay 1."""
+  contractItemTypeEdge(
+    """The method to use when ordering `ContractItemType`."""
+    orderBy: [ContractItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ContractItemTypesEdge
+}
+
+"""All input for the create `ContractItemType` mutation."""
+input CreateContractItemTypeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `ContractItemType` to be created by this mutation."""
+  contractItemType: ContractItemTypeInput!
+}
+
+"""An input for mutations affecting `ContractItemType`"""
+input ContractItemTypeInput {
+  id: Int
+  title: String!
+  marinaId: Int!
+  description: String!
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `ContractItem` mutation."""
+type CreateContractItemPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `ContractItem` that was created by this mutation."""
+  contractItem: ContractItem
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `ContractItem`. May be used by Relay 1."""
+  contractItemEdge(
+    """The method to use when ordering `ContractItem`."""
+    orderBy: [ContractItemsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ContractItemsEdge
+}
+
+"""All input for the create `ContractItem` mutation."""
+input CreateContractItemInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `ContractItem` to be created by this mutation."""
+  contractItem: ContractItemInput!
+}
+
+"""An input for mutations affecting `ContractItem`"""
+input ContractItemInput {
+  id: Int
+  contractId: Int!
+  typeId: Int!
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `Contract` mutation."""
+type CreateContractPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Contract` that was created by this mutation."""
+  contract: Contract
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `Contract`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `Contract`. May be used by Relay 1."""
+  contractEdge(
+    """The method to use when ordering `Contract`."""
+    orderBy: [ContractsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ContractsEdge
+}
+
+"""All input for the create `Contract` mutation."""
+input CreateContractInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Contract` to be created by this mutation."""
+  contract: ContractInput!
+}
+
+"""An input for mutations affecting `Contract`"""
+input ContractInput {
+  id: Int
+  status: String!
+  vesselId: Int!
+  marinaId: Int!
+  deliveryMethod: String!
+  completedAt: Datetime
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `Invoice` mutation."""
+type CreateInvoicePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Invoice` that was created by this mutation."""
+  invoice: Invoice
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `Invoice`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `Invoice`. May be used by Relay 1."""
+  invoiceEdge(
+    """The method to use when ordering `Invoice`."""
+    orderBy: [InvoicesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): InvoicesEdge
+}
+
+"""All input for the create `Invoice` mutation."""
+input CreateInvoiceInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Invoice` to be created by this mutation."""
+  invoice: InvoiceInput!
+}
+
+"""An input for mutations affecting `Invoice`"""
+input InvoiceInput {
+  id: Int
+  status: String!
+  marinaId: Int!
+  workOrderId: Int
+  vesselId: Int
+  ownerId: Int
+  dateSent: Datetime
+  dateDue: Datetime
+  completedAt: Datetime
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `LineItemType` mutation."""
+type CreateLineItemTypePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `LineItemType` that was created by this mutation."""
+  lineItemType: LineItemType
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `LineItemType`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `LineItemType`. May be used by Relay 1."""
+  lineItemTypeEdge(
+    """The method to use when ordering `LineItemType`."""
+    orderBy: [LineItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): LineItemTypesEdge
+}
+
+"""All input for the create `LineItemType` mutation."""
+input CreateLineItemTypeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `LineItemType` to be created by this mutation."""
+  lineItemType: LineItemTypeInput!
+}
+
+"""An input for mutations affecting `LineItemType`"""
+input LineItemTypeInput {
+  id: Int
+  title: String!
+  marinaId: Int!
+  description: String!
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `LineItem` mutation."""
+type CreateLineItemPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `LineItem` that was created by this mutation."""
+  lineItem: LineItem
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `LineItem`. May be used by Relay 1."""
+  lineItemEdge(
+    """The method to use when ordering `LineItem`."""
+    orderBy: [LineItemsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): LineItemsEdge
+}
+
+"""All input for the create `LineItem` mutation."""
+input CreateLineItemInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `LineItem` to be created by this mutation."""
+  lineItem: LineItemInput!
+}
+
+"""An input for mutations affecting `LineItem`"""
+input LineItemInput {
+  id: Int
+  invoiceId: Int!
+  typeId: Int!
+  price: Int!
+  laborInHours: Int
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `MarinaCustomer` mutation."""
+type CreateMarinaCustomerPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MarinaCustomer` that was created by this mutation."""
+  marinaCustomer: MarinaCustomer
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `MarinaCustomer`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `MarinaCustomer`. May be used by Relay 1."""
+  marinaCustomerEdge(
+    """The method to use when ordering `MarinaCustomer`."""
+    orderBy: [MarinaCustomersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MarinaCustomersEdge
+}
+
+"""All input for the create `MarinaCustomer` mutation."""
+input CreateMarinaCustomerInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `MarinaCustomer` to be created by this mutation."""
+  marinaCustomer: MarinaCustomerInput!
+}
+
+"""An input for mutations affecting `MarinaCustomer`"""
+input MarinaCustomerInput {
+  id: Int
+  marinaId: Int!
+  ownerId: Int!
+  inventoryId: Int!
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `MarinaInventory` mutation."""
+type CreateMarinaInventoryPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MarinaInventory` that was created by this mutation."""
+  marinaInventory: MarinaInventory
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `MarinaInventory`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `MarinaInventory`. May be used by Relay 1."""
+  marinaInventoryEdge(
+    """The method to use when ordering `MarinaInventory`."""
+    orderBy: [MarinaInventoriesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MarinaInventoriesEdge
+}
+
+"""All input for the create `MarinaInventory` mutation."""
+input CreateMarinaInventoryInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `MarinaInventory` to be created by this mutation."""
+  marinaInventory: MarinaInventoryInput!
+}
+
+"""An input for mutations affecting `MarinaInventory`"""
+input MarinaInventoryInput {
+  id: Int
+  marinaId: Int!
+  inventoryId: Int!
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `Marina` mutation."""
+type CreateMarinaPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Marina` that was created by this mutation."""
+  marina: Marina
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Marina`. May be used by Relay 1."""
+  marinaEdge(
+    """The method to use when ordering `Marina`."""
+    orderBy: [MarinasOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MarinasEdge
+}
+
+"""All input for the create `Marina` mutation."""
+input CreateMarinaInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Marina` to be created by this mutation."""
+  marina: MarinaInput!
+}
+
+"""An input for mutations affecting `Marina`"""
+input MarinaInput {
+  id: Int
+  name: String!
+  address: String!
+  city: String!
+  state: String!
+  zipCode: String!
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `Owner` mutation."""
+type CreateOwnerPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Owner` that was created by this mutation."""
+  owner: Owner
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Owner`. May be used by Relay 1."""
+  ownerEdge(
+    """The method to use when ordering `Owner`."""
+    orderBy: [OwnersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): OwnersEdge
+}
+
+"""All input for the create `Owner` mutation."""
+input CreateOwnerInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Owner` to be created by this mutation."""
+  owner: OwnerInput!
+}
+
+"""An input for mutations affecting `Owner`"""
+input OwnerInput {
+  id: Int
+  firstName: String!
+  lastName: String!
+  address: String!
+  city: String!
+  state: String!
+  zipCode: String!
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `Vessel` mutation."""
+type CreateVesselPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Vessel` that was created by this mutation."""
+  vessel: Vessel
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Vessel`. May be used by Relay 1."""
+  vesselEdge(
+    """The method to use when ordering `Vessel`."""
+    orderBy: [VesselsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VesselsEdge
+}
+
+"""All input for the create `Vessel` mutation."""
+input CreateVesselInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Vessel` to be created by this mutation."""
+  vessel: VesselInput!
+}
+
+"""An input for mutations affecting `Vessel`"""
+input VesselInput {
+  id: Int
+  year: Int!
+  boatName: String
+  length: Int!
+  make: String!
+  model: String
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `WorkOrderItemType` mutation."""
+type CreateWorkOrderItemTypePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `WorkOrderItemType` that was created by this mutation."""
+  workOrderItemType: WorkOrderItemType
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `WorkOrderItemType`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `WorkOrderItemType`. May be used by Relay 1."""
+  workOrderItemTypeEdge(
+    """The method to use when ordering `WorkOrderItemType`."""
+    orderBy: [WorkOrderItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): WorkOrderItemTypesEdge
+}
+
+"""All input for the create `WorkOrderItemType` mutation."""
+input CreateWorkOrderItemTypeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `WorkOrderItemType` to be created by this mutation."""
+  workOrderItemType: WorkOrderItemTypeInput!
+}
+
+"""An input for mutations affecting `WorkOrderItemType`"""
+input WorkOrderItemTypeInput {
+  id: Int
+  title: String!
+  marinaId: Int!
+  description: String!
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `WorkOrderItem` mutation."""
+type CreateWorkOrderItemPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `WorkOrderItem` that was created by this mutation."""
+  workOrderItem: WorkOrderItem
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `WorkOrderItem`. May be used by Relay 1."""
+  workOrderItemEdge(
+    """The method to use when ordering `WorkOrderItem`."""
+    orderBy: [WorkOrderItemsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): WorkOrderItemsEdge
+}
+
+"""All input for the create `WorkOrderItem` mutation."""
+input CreateWorkOrderItemInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `WorkOrderItem` to be created by this mutation."""
+  workOrderItem: WorkOrderItemInput!
+}
+
+"""An input for mutations affecting `WorkOrderItem`"""
+input WorkOrderItemInput {
+  id: Int
+  workOrderId: Int!
+  typeId: Int!
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our create `WorkOrder` mutation."""
+type CreateWorkOrderPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `WorkOrder` that was created by this mutation."""
+  workOrder: WorkOrder
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `WorkOrder`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `WorkOrder`. May be used by Relay 1."""
+  workOrderEdge(
+    """The method to use when ordering `WorkOrder`."""
+    orderBy: [WorkOrdersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): WorkOrdersEdge
+}
+
+"""All input for the create `WorkOrder` mutation."""
+input CreateWorkOrderInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `WorkOrder` to be created by this mutation."""
+  workOrder: WorkOrderInput!
+}
+
+"""An input for mutations affecting `WorkOrder`"""
+input WorkOrderInput {
+  id: Int
+  status: String!
+  marinaId: Int!
+  vesselId: Int!
+  contractId: Int
+  completedAt: Datetime
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""The output of our update `ContractItemType` mutation."""
+type UpdateContractItemTypePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `ContractItemType` that was updated by this mutation."""
+  contractItemType: ContractItemType
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `ContractItemType`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `ContractItemType`. May be used by Relay 1."""
+  contractItemTypeEdge(
+    """The method to use when ordering `ContractItemType`."""
+    orderBy: [ContractItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ContractItemTypesEdge
+}
+
+"""All input for the `updateContractItemType` mutation."""
+input UpdateContractItemTypeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `ContractItemType` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `ContractItemType` being updated.
+  """
+  contractItemTypePatch: ContractItemTypePatch!
+}
+
+"""
+Represents an update to a `ContractItemType`. Fields that are set will be updated.
+"""
+input ContractItemTypePatch {
+  id: Int
+  title: String
+  marinaId: Int
+  description: String
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateContractItemTypeById` mutation."""
+input UpdateContractItemTypeByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `ContractItemType` being updated.
+  """
+  contractItemTypePatch: ContractItemTypePatch!
+  id: Int!
+}
+
+"""The output of our update `ContractItem` mutation."""
+type UpdateContractItemPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `ContractItem` that was updated by this mutation."""
+  contractItem: ContractItem
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `ContractItem`. May be used by Relay 1."""
+  contractItemEdge(
+    """The method to use when ordering `ContractItem`."""
+    orderBy: [ContractItemsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ContractItemsEdge
+}
+
+"""All input for the `updateContractItem` mutation."""
+input UpdateContractItemInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `ContractItem` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `ContractItem` being updated.
+  """
+  contractItemPatch: ContractItemPatch!
+}
+
+"""
+Represents an update to a `ContractItem`. Fields that are set will be updated.
+"""
+input ContractItemPatch {
+  id: Int
+  contractId: Int
+  typeId: Int
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateContractItemById` mutation."""
+input UpdateContractItemByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `ContractItem` being updated.
+  """
+  contractItemPatch: ContractItemPatch!
+  id: Int!
+}
+
+"""The output of our update `Contract` mutation."""
+type UpdateContractPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Contract` that was updated by this mutation."""
+  contract: Contract
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `Contract`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `Contract`. May be used by Relay 1."""
+  contractEdge(
+    """The method to use when ordering `Contract`."""
+    orderBy: [ContractsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ContractsEdge
+}
+
+"""All input for the `updateContract` mutation."""
+input UpdateContractInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Contract` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Contract` being updated.
+  """
+  contractPatch: ContractPatch!
+}
+
+"""
+Represents an update to a `Contract`. Fields that are set will be updated.
+"""
+input ContractPatch {
+  id: Int
+  status: String
+  vesselId: Int
+  marinaId: Int
+  deliveryMethod: String
+  completedAt: Datetime
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateContractById` mutation."""
+input UpdateContractByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Contract` being updated.
+  """
+  contractPatch: ContractPatch!
+  id: Int!
+}
+
+"""The output of our update `Invoice` mutation."""
+type UpdateInvoicePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Invoice` that was updated by this mutation."""
+  invoice: Invoice
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `Invoice`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `Invoice`. May be used by Relay 1."""
+  invoiceEdge(
+    """The method to use when ordering `Invoice`."""
+    orderBy: [InvoicesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): InvoicesEdge
+}
+
+"""All input for the `updateInvoice` mutation."""
+input UpdateInvoiceInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Invoice` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Invoice` being updated.
+  """
+  invoicePatch: InvoicePatch!
+}
+
+"""
+Represents an update to a `Invoice`. Fields that are set will be updated.
+"""
+input InvoicePatch {
+  id: Int
+  status: String
+  marinaId: Int
+  workOrderId: Int
+  vesselId: Int
+  ownerId: Int
+  dateSent: Datetime
+  dateDue: Datetime
+  completedAt: Datetime
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateInvoiceById` mutation."""
+input UpdateInvoiceByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Invoice` being updated.
+  """
+  invoicePatch: InvoicePatch!
+  id: Int!
+}
+
+"""The output of our update `LineItemType` mutation."""
+type UpdateLineItemTypePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `LineItemType` that was updated by this mutation."""
+  lineItemType: LineItemType
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `LineItemType`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `LineItemType`. May be used by Relay 1."""
+  lineItemTypeEdge(
+    """The method to use when ordering `LineItemType`."""
+    orderBy: [LineItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): LineItemTypesEdge
+}
+
+"""All input for the `updateLineItemType` mutation."""
+input UpdateLineItemTypeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `LineItemType` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `LineItemType` being updated.
+  """
+  lineItemTypePatch: LineItemTypePatch!
+}
+
+"""
+Represents an update to a `LineItemType`. Fields that are set will be updated.
+"""
+input LineItemTypePatch {
+  id: Int
+  title: String
+  marinaId: Int
+  description: String
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateLineItemTypeById` mutation."""
+input UpdateLineItemTypeByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `LineItemType` being updated.
+  """
+  lineItemTypePatch: LineItemTypePatch!
+  id: Int!
+}
+
+"""The output of our update `LineItem` mutation."""
+type UpdateLineItemPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `LineItem` that was updated by this mutation."""
+  lineItem: LineItem
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `LineItem`. May be used by Relay 1."""
+  lineItemEdge(
+    """The method to use when ordering `LineItem`."""
+    orderBy: [LineItemsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): LineItemsEdge
+}
+
+"""All input for the `updateLineItem` mutation."""
+input UpdateLineItemInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `LineItem` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `LineItem` being updated.
+  """
+  lineItemPatch: LineItemPatch!
+}
+
+"""
+Represents an update to a `LineItem`. Fields that are set will be updated.
+"""
+input LineItemPatch {
+  id: Int
+  invoiceId: Int
+  typeId: Int
+  price: Int
+  laborInHours: Int
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateLineItemById` mutation."""
+input UpdateLineItemByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `LineItem` being updated.
+  """
+  lineItemPatch: LineItemPatch!
+  id: Int!
+}
+
+"""The output of our update `MarinaCustomer` mutation."""
+type UpdateMarinaCustomerPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MarinaCustomer` that was updated by this mutation."""
+  marinaCustomer: MarinaCustomer
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `MarinaCustomer`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `MarinaCustomer`. May be used by Relay 1."""
+  marinaCustomerEdge(
+    """The method to use when ordering `MarinaCustomer`."""
+    orderBy: [MarinaCustomersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MarinaCustomersEdge
+}
+
+"""All input for the `updateMarinaCustomer` mutation."""
+input UpdateMarinaCustomerInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MarinaCustomer` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `MarinaCustomer` being updated.
+  """
+  marinaCustomerPatch: MarinaCustomerPatch!
+}
+
+"""
+Represents an update to a `MarinaCustomer`. Fields that are set will be updated.
+"""
+input MarinaCustomerPatch {
+  id: Int
+  marinaId: Int
+  ownerId: Int
+  inventoryId: Int
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateMarinaCustomerById` mutation."""
+input UpdateMarinaCustomerByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `MarinaCustomer` being updated.
+  """
+  marinaCustomerPatch: MarinaCustomerPatch!
+  id: Int!
+}
+
+"""The output of our update `MarinaInventory` mutation."""
+type UpdateMarinaInventoryPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MarinaInventory` that was updated by this mutation."""
+  marinaInventory: MarinaInventory
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `MarinaInventory`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `MarinaInventory`. May be used by Relay 1."""
+  marinaInventoryEdge(
+    """The method to use when ordering `MarinaInventory`."""
+    orderBy: [MarinaInventoriesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MarinaInventoriesEdge
+}
+
+"""All input for the `updateMarinaInventory` mutation."""
+input UpdateMarinaInventoryInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MarinaInventory` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `MarinaInventory` being updated.
+  """
+  marinaInventoryPatch: MarinaInventoryPatch!
+}
+
+"""
+Represents an update to a `MarinaInventory`. Fields that are set will be updated.
+"""
+input MarinaInventoryPatch {
+  id: Int
+  marinaId: Int
+  inventoryId: Int
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateMarinaInventoryById` mutation."""
+input UpdateMarinaInventoryByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `MarinaInventory` being updated.
+  """
+  marinaInventoryPatch: MarinaInventoryPatch!
+  id: Int!
+}
+
+"""The output of our update `Marina` mutation."""
+type UpdateMarinaPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Marina` that was updated by this mutation."""
+  marina: Marina
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Marina`. May be used by Relay 1."""
+  marinaEdge(
+    """The method to use when ordering `Marina`."""
+    orderBy: [MarinasOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MarinasEdge
+}
+
+"""All input for the `updateMarina` mutation."""
+input UpdateMarinaInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Marina` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Marina` being updated.
+  """
+  marinaPatch: MarinaPatch!
+}
+
+"""
+Represents an update to a `Marina`. Fields that are set will be updated.
+"""
+input MarinaPatch {
+  id: Int
+  name: String
+  address: String
+  city: String
+  state: String
+  zipCode: String
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateMarinaById` mutation."""
+input UpdateMarinaByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Marina` being updated.
+  """
+  marinaPatch: MarinaPatch!
+  id: Int!
+}
+
+"""The output of our update `Owner` mutation."""
+type UpdateOwnerPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Owner` that was updated by this mutation."""
+  owner: Owner
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Owner`. May be used by Relay 1."""
+  ownerEdge(
+    """The method to use when ordering `Owner`."""
+    orderBy: [OwnersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): OwnersEdge
+}
+
+"""All input for the `updateOwner` mutation."""
+input UpdateOwnerInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Owner` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Owner` being updated.
+  """
+  ownerPatch: OwnerPatch!
+}
+
+"""
+Represents an update to a `Owner`. Fields that are set will be updated.
+"""
+input OwnerPatch {
+  id: Int
+  firstName: String
+  lastName: String
+  address: String
+  city: String
+  state: String
+  zipCode: String
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateOwnerById` mutation."""
+input UpdateOwnerByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Owner` being updated.
+  """
+  ownerPatch: OwnerPatch!
+  id: Int!
+}
+
+"""The output of our update `Vessel` mutation."""
+type UpdateVesselPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Vessel` that was updated by this mutation."""
+  vessel: Vessel
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Vessel`. May be used by Relay 1."""
+  vesselEdge(
+    """The method to use when ordering `Vessel`."""
+    orderBy: [VesselsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VesselsEdge
+}
+
+"""All input for the `updateVessel` mutation."""
+input UpdateVesselInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Vessel` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Vessel` being updated.
+  """
+  vesselPatch: VesselPatch!
+}
+
+"""
+Represents an update to a `Vessel`. Fields that are set will be updated.
+"""
+input VesselPatch {
+  id: Int
+  year: Int
+  boatName: String
+  length: Int
+  make: String
+  model: String
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateVesselById` mutation."""
+input UpdateVesselByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Vessel` being updated.
+  """
+  vesselPatch: VesselPatch!
+  id: Int!
+}
+
+"""The output of our update `WorkOrderItemType` mutation."""
+type UpdateWorkOrderItemTypePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `WorkOrderItemType` that was updated by this mutation."""
+  workOrderItemType: WorkOrderItemType
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `WorkOrderItemType`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `WorkOrderItemType`. May be used by Relay 1."""
+  workOrderItemTypeEdge(
+    """The method to use when ordering `WorkOrderItemType`."""
+    orderBy: [WorkOrderItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): WorkOrderItemTypesEdge
+}
+
+"""All input for the `updateWorkOrderItemType` mutation."""
+input UpdateWorkOrderItemTypeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `WorkOrderItemType` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `WorkOrderItemType` being updated.
+  """
+  workOrderItemTypePatch: WorkOrderItemTypePatch!
+}
+
+"""
+Represents an update to a `WorkOrderItemType`. Fields that are set will be updated.
+"""
+input WorkOrderItemTypePatch {
+  id: Int
+  title: String
+  marinaId: Int
+  description: String
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateWorkOrderItemTypeById` mutation."""
+input UpdateWorkOrderItemTypeByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `WorkOrderItemType` being updated.
+  """
+  workOrderItemTypePatch: WorkOrderItemTypePatch!
+  id: Int!
+}
+
+"""The output of our update `WorkOrderItem` mutation."""
+type UpdateWorkOrderItemPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `WorkOrderItem` that was updated by this mutation."""
+  workOrderItem: WorkOrderItem
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `WorkOrderItem`. May be used by Relay 1."""
+  workOrderItemEdge(
+    """The method to use when ordering `WorkOrderItem`."""
+    orderBy: [WorkOrderItemsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): WorkOrderItemsEdge
+}
+
+"""All input for the `updateWorkOrderItem` mutation."""
+input UpdateWorkOrderItemInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `WorkOrderItem` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `WorkOrderItem` being updated.
+  """
+  workOrderItemPatch: WorkOrderItemPatch!
+}
+
+"""
+Represents an update to a `WorkOrderItem`. Fields that are set will be updated.
+"""
+input WorkOrderItemPatch {
+  id: Int
+  workOrderId: Int
+  typeId: Int
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateWorkOrderItemById` mutation."""
+input UpdateWorkOrderItemByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `WorkOrderItem` being updated.
+  """
+  workOrderItemPatch: WorkOrderItemPatch!
+  id: Int!
+}
+
+"""The output of our update `WorkOrder` mutation."""
+type UpdateWorkOrderPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `WorkOrder` that was updated by this mutation."""
+  workOrder: WorkOrder
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `WorkOrder`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `WorkOrder`. May be used by Relay 1."""
+  workOrderEdge(
+    """The method to use when ordering `WorkOrder`."""
+    orderBy: [WorkOrdersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): WorkOrdersEdge
+}
+
+"""All input for the `updateWorkOrder` mutation."""
+input UpdateWorkOrderInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `WorkOrder` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `WorkOrder` being updated.
+  """
+  workOrderPatch: WorkOrderPatch!
+}
+
+"""
+Represents an update to a `WorkOrder`. Fields that are set will be updated.
+"""
+input WorkOrderPatch {
+  id: Int
+  status: String
+  marinaId: Int
+  vesselId: Int
+  contractId: Int
+  completedAt: Datetime
+  updatedAt: Datetime
+  createdAt: Datetime
+}
+
+"""All input for the `updateWorkOrderById` mutation."""
+input UpdateWorkOrderByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `WorkOrder` being updated.
+  """
+  workOrderPatch: WorkOrderPatch!
+  id: Int!
+}
+
+"""The output of our delete `ContractItemType` mutation."""
+type DeleteContractItemTypePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `ContractItemType` that was deleted by this mutation."""
+  contractItemType: ContractItemType
+  deletedContractItemTypeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `ContractItemType`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `ContractItemType`. May be used by Relay 1."""
+  contractItemTypeEdge(
+    """The method to use when ordering `ContractItemType`."""
+    orderBy: [ContractItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ContractItemTypesEdge
+}
+
+"""All input for the `deleteContractItemType` mutation."""
+input DeleteContractItemTypeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `ContractItemType` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteContractItemTypeById` mutation."""
+input DeleteContractItemTypeByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `ContractItem` mutation."""
+type DeleteContractItemPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `ContractItem` that was deleted by this mutation."""
+  contractItem: ContractItem
+  deletedContractItemId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `ContractItem`. May be used by Relay 1."""
+  contractItemEdge(
+    """The method to use when ordering `ContractItem`."""
+    orderBy: [ContractItemsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ContractItemsEdge
+}
+
+"""All input for the `deleteContractItem` mutation."""
+input DeleteContractItemInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `ContractItem` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteContractItemById` mutation."""
+input DeleteContractItemByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `Contract` mutation."""
+type DeleteContractPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Contract` that was deleted by this mutation."""
+  contract: Contract
+  deletedContractId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `Contract`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `Contract`. May be used by Relay 1."""
+  contractEdge(
+    """The method to use when ordering `Contract`."""
+    orderBy: [ContractsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ContractsEdge
+}
+
+"""All input for the `deleteContract` mutation."""
+input DeleteContractInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Contract` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteContractById` mutation."""
+input DeleteContractByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `Invoice` mutation."""
+type DeleteInvoicePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Invoice` that was deleted by this mutation."""
+  invoice: Invoice
+  deletedInvoiceId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `Invoice`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `Invoice`. May be used by Relay 1."""
+  invoiceEdge(
+    """The method to use when ordering `Invoice`."""
+    orderBy: [InvoicesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): InvoicesEdge
+}
+
+"""All input for the `deleteInvoice` mutation."""
+input DeleteInvoiceInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Invoice` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteInvoiceById` mutation."""
+input DeleteInvoiceByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `LineItemType` mutation."""
+type DeleteLineItemTypePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `LineItemType` that was deleted by this mutation."""
+  lineItemType: LineItemType
+  deletedLineItemTypeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `LineItemType`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `LineItemType`. May be used by Relay 1."""
+  lineItemTypeEdge(
+    """The method to use when ordering `LineItemType`."""
+    orderBy: [LineItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): LineItemTypesEdge
+}
+
+"""All input for the `deleteLineItemType` mutation."""
+input DeleteLineItemTypeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `LineItemType` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteLineItemTypeById` mutation."""
+input DeleteLineItemTypeByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `LineItem` mutation."""
+type DeleteLineItemPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `LineItem` that was deleted by this mutation."""
+  lineItem: LineItem
+  deletedLineItemId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `LineItem`. May be used by Relay 1."""
+  lineItemEdge(
+    """The method to use when ordering `LineItem`."""
+    orderBy: [LineItemsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): LineItemsEdge
+}
+
+"""All input for the `deleteLineItem` mutation."""
+input DeleteLineItemInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `LineItem` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteLineItemById` mutation."""
+input DeleteLineItemByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `MarinaCustomer` mutation."""
+type DeleteMarinaCustomerPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MarinaCustomer` that was deleted by this mutation."""
+  marinaCustomer: MarinaCustomer
+  deletedMarinaCustomerId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `MarinaCustomer`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `MarinaCustomer`. May be used by Relay 1."""
+  marinaCustomerEdge(
+    """The method to use when ordering `MarinaCustomer`."""
+    orderBy: [MarinaCustomersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MarinaCustomersEdge
+}
+
+"""All input for the `deleteMarinaCustomer` mutation."""
+input DeleteMarinaCustomerInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MarinaCustomer` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteMarinaCustomerById` mutation."""
+input DeleteMarinaCustomerByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `MarinaInventory` mutation."""
+type DeleteMarinaInventoryPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MarinaInventory` that was deleted by this mutation."""
+  marinaInventory: MarinaInventory
+  deletedMarinaInventoryId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `MarinaInventory`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `MarinaInventory`. May be used by Relay 1."""
+  marinaInventoryEdge(
+    """The method to use when ordering `MarinaInventory`."""
+    orderBy: [MarinaInventoriesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MarinaInventoriesEdge
+}
+
+"""All input for the `deleteMarinaInventory` mutation."""
+input DeleteMarinaInventoryInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MarinaInventory` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteMarinaInventoryById` mutation."""
+input DeleteMarinaInventoryByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `Marina` mutation."""
+type DeleteMarinaPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Marina` that was deleted by this mutation."""
+  marina: Marina
+  deletedMarinaId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Marina`. May be used by Relay 1."""
+  marinaEdge(
+    """The method to use when ordering `Marina`."""
+    orderBy: [MarinasOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MarinasEdge
+}
+
+"""All input for the `deleteMarina` mutation."""
+input DeleteMarinaInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Marina` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteMarinaById` mutation."""
+input DeleteMarinaByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `Owner` mutation."""
+type DeleteOwnerPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Owner` that was deleted by this mutation."""
+  owner: Owner
+  deletedOwnerId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Owner`. May be used by Relay 1."""
+  ownerEdge(
+    """The method to use when ordering `Owner`."""
+    orderBy: [OwnersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): OwnersEdge
+}
+
+"""All input for the `deleteOwner` mutation."""
+input DeleteOwnerInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Owner` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteOwnerById` mutation."""
+input DeleteOwnerByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `Vessel` mutation."""
+type DeleteVesselPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Vessel` that was deleted by this mutation."""
+  vessel: Vessel
+  deletedVesselId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Vessel`. May be used by Relay 1."""
+  vesselEdge(
+    """The method to use when ordering `Vessel`."""
+    orderBy: [VesselsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VesselsEdge
+}
+
+"""All input for the `deleteVessel` mutation."""
+input DeleteVesselInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Vessel` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteVesselById` mutation."""
+input DeleteVesselByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `WorkOrderItemType` mutation."""
+type DeleteWorkOrderItemTypePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `WorkOrderItemType` that was deleted by this mutation."""
+  workOrderItemType: WorkOrderItemType
+  deletedWorkOrderItemTypeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `WorkOrderItemType`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `WorkOrderItemType`. May be used by Relay 1."""
+  workOrderItemTypeEdge(
+    """The method to use when ordering `WorkOrderItemType`."""
+    orderBy: [WorkOrderItemTypesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): WorkOrderItemTypesEdge
+}
+
+"""All input for the `deleteWorkOrderItemType` mutation."""
+input DeleteWorkOrderItemTypeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `WorkOrderItemType` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteWorkOrderItemTypeById` mutation."""
+input DeleteWorkOrderItemTypeByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `WorkOrderItem` mutation."""
+type DeleteWorkOrderItemPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `WorkOrderItem` that was deleted by this mutation."""
+  workOrderItem: WorkOrderItem
+  deletedWorkOrderItemId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `WorkOrderItem`. May be used by Relay 1."""
+  workOrderItemEdge(
+    """The method to use when ordering `WorkOrderItem`."""
+    orderBy: [WorkOrderItemsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): WorkOrderItemsEdge
+}
+
+"""All input for the `deleteWorkOrderItem` mutation."""
+input DeleteWorkOrderItemInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `WorkOrderItem` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteWorkOrderItemById` mutation."""
+input DeleteWorkOrderItemByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `WorkOrder` mutation."""
+type DeleteWorkOrderPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `WorkOrder` that was deleted by this mutation."""
+  workOrder: WorkOrder
+  deletedWorkOrderId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Marina` that is related to this `WorkOrder`."""
+  marinaByMarinaId: Marina
+
+  """An edge for our `WorkOrder`. May be used by Relay 1."""
+  workOrderEdge(
+    """The method to use when ordering `WorkOrder`."""
+    orderBy: [WorkOrdersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): WorkOrdersEdge
+}
+
+"""All input for the `deleteWorkOrder` mutation."""
+input DeleteWorkOrderInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `WorkOrder` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteWorkOrderById` mutation."""
+input DeleteWorkOrderByIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}

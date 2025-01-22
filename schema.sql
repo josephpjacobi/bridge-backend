@@ -52,7 +52,7 @@ INSERT INTO marinas (
 
 CREATE TABLE IF NOT EXISTS marina_customer (
   id SERIAL PRIMARY KEY,
-  marina_id	integer NOT NUll,
+  marina_id	integer NOT NUll REFERENCES marinas(id),
   owner_id integer NOT NULL,
   inventory_id integer NOT NULL,
   updated_at timestamp NOT NUll DEFAULT NOW(),
@@ -72,7 +72,7 @@ INSERT INTO marina_customer (
 
 CREATE TABLE IF NOT EXISTS marina_inventory (
   id SERIAL PRIMARY KEY,
-  marina_id	integer NOT NUll,
+  marina_id	integer NOT NUll REFERENCES marinas(id),
   inventory_id integer NOT NULL,
   updated_at timestamp NOT NUll DEFAULT NOW(),
   created_at timestamp NOT NUll DEFAULT NOW()
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS contracts (
   id SERIAL PRIMARY KEY,
   status VARCHAR(50) NOT NULL,
   vessel_id	integer NOT NULL,
-  marina_id	integer NOT NULL,
+  marina_id	integer NOT NULL REFERENCES marinas(id),
   delivery_method	VARCHAR(15) NOT NULL,
   completed_at timestamp,
   updated_at timestamp NOT NUll DEFAULT NOW(),
@@ -182,7 +182,7 @@ INSERT INTO contract_items (
 CREATE TABLE IF NOT EXISTS contract_item_type (
   id SERIAL PRIMARY KEY,
   title VARCHAR(50) NOT NULL,
-  marina_id	integer NOT NULL,
+  marina_id	integer NOT NULL REFERENCES marinas(id),
   description	VARCHAR(100) NOT NULL,
   updated_at timestamp NOT NUll DEFAULT NOW(),
   created_at timestamp NOT NUll DEFAULT NOW()
@@ -202,7 +202,7 @@ INSERT INTO contract_item_type (
 CREATE TABLE IF NOT EXISTS work_orders (
   id SERIAL PRIMARY KEY,
   status VARCHAR(50) NOT NULL,
-  marina_id	integer NOT NULL,
+  marina_id	integer NOT NULL REFERENCES marinas(id),
   vessel_id	integer NOT NULL,
   contract_id integer,
   completed_at timestamp,
@@ -243,7 +243,7 @@ INSERT INTO work_order_items (
 CREATE TABLE IF NOT EXISTS work_order_item_type (
   id SERIAL PRIMARY KEY,
   title VARCHAR(50) NOT NULL,
-  marina_id	integer NOT NULL,
+  marina_id	integer NOT NULL REFERENCES marinas(id),
   description	VARCHAR(100) NOT NULL,
   updated_at timestamp NOT NUll DEFAULT NOW(),
   created_at timestamp NOT NUll DEFAULT NOW()
@@ -263,7 +263,7 @@ INSERT INTO work_order_item_type (
 CREATE TABLE IF NOT EXISTS invoices (
   id SERIAL PRIMARY KEY,
   status VARCHAR(50) NOT NULL,
-  marina_id	integer NOT NULL,
+  marina_id	integer NOT NULL REFERENCES marinas(id),
   work_order_id integer,
   vessel_id	integer,
   owner_id integer,
@@ -312,7 +312,7 @@ INSERT INTO line_items (
 CREATE TABLE IF NOT EXISTS line_item_type (
   id SERIAL PRIMARY KEY,
   title VARCHAR(50) NOT NULL,
-  marina_id	integer NOT NULL,
+  marina_id	integer NOT NULL REFERENCES marinas(id),
   description	VARCHAR(100) NOT NULL,
   updated_at timestamp NOT NUll DEFAULT NOW(),
   created_at timestamp NOT NUll DEFAULT NOW()
